@@ -14,6 +14,7 @@ module.exports = async (req, res, next) => {
     try {
         const decoded = await promisify(jwt.verify)(token, configAuth.token);
         req.userId = decoded.id;
+        req.userProfile = decoded.profile;
     } catch (err) {
         return res.status(401).json({ message: 'Invalid token' })
     }

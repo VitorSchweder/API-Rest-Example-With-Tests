@@ -36,7 +36,10 @@ class User extends Model {
     }
 
     generateToken = () => {
-        return jwt.sign({ id: this.id }, configAuth.token);
+        return jwt.sign({ 
+            id: this.id, 
+            profile: this.profile_id 
+        }, configAuth.token);
     }
 }
 
