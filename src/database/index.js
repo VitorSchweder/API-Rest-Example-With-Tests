@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize');
-const dbConfig = require('../config/database');
+const dbConfig = require('../config');
 
 const User = require('../app/models/User');
 const Company = require('../app/models/Company');
 const Profile = require('../app/models/Profile');
 const Employee = require('../app/models/Employee');
 
-const connection = new Sequelize(dbConfig);
+const connection = new Sequelize(dbConfig.database);
 
 User.init(connection);
 Company.init(connection);

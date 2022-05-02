@@ -1,9 +1,9 @@
-const CompanyService = require('../services/CompanyService');
+const ProfileService = require('../services/ProfileService');
 
-class CompaniesController {
+class ProfilesController {
     async index(req, res) {
         try {   
-            const result = await CompanyService.index();
+            const result = await ProfileService.index();
 
             return res.json(result);
         } catch (e) {
@@ -16,12 +16,12 @@ class CompaniesController {
 
     async show(req,res) {
         try {
-            const result = await CompanyService.getById(req.params.id);    
+            const result = await ProfileService.getById(req.params.id);    
                 
             if (!result) {
                 return res.status(404).json({
                     success: false, 
-                    message: "Empresa não encontrada!"
+                    message: "Perfil não encontrado!"
                 });
             } 
 
@@ -36,7 +36,7 @@ class CompaniesController {
 
     async store(req,res) {
         try {            
-            const result = await CompanyService.create(req.body);
+            const result = await ProfileService.create(req.body);
             
             return res.json(result)
         } catch (e) {
@@ -49,12 +49,12 @@ class CompaniesController {
 
     async update(req,res) {
         try {
-            const result = await CompanyService.update(req.body, req.params.id);
+            const result = await ProfileService.update(req.body, req.params.id);
    
             if (!result) {
                 return res.status(404).json({
                     success: false, 
-                    message: "Empresa não encontrada!"
+                    message: "Perfil não encontrado!"
                 });
             } 
 
@@ -69,18 +69,18 @@ class CompaniesController {
     
     async delete(req,res) {
         try {
-            const result = await CompanyService.destroy(req.params.id);
+            const result = await ProfileService.destroy(req.params.id);
 
             if (!result) {
                 return res.status(404).json({
                     success: false, 
-                    message: "Empresa não encontrada!"
+                    message: "Perfil não encontrado!"
                 });
             } 
 
             return res.status(200).json({
                 success: true, 
-                message: "Empresa excluída com sucesso."
+                message: "Perfil excluído com sucesso."
             });
         } catch (e) {
             return res.status(500).json({
@@ -91,4 +91,4 @@ class CompaniesController {
     }
 }
 
-module.exports = new CompaniesController;
+module.exports = new ProfilesController;

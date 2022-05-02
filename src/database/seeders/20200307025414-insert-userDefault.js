@@ -1,10 +1,10 @@
 'use strict';
-const configAuth = require('../../config/auth');
+const configAuth = require('../../config');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-      const hash = await bcrypt.hash('admin@321', configAuth.SALT_ROUNDS);
+      const hash = await bcrypt.hash('admin@321', parseInt(configAuth.salt));
 
       return queryInterface.bulkInsert('users', [{
         name: 'Administrador',

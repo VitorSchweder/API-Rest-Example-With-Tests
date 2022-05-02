@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const configAuth = require('../../config/auth');
+const configAuth = require('../../config');
 const { Model, DataTypes } = require('sequelize');
 
 class User extends Model {
@@ -18,8 +18,8 @@ class User extends Model {
         });
   
         this.addHook('beforeSave', async user => {
-            if (user.password) {
-                user.password_hash = await bcrypt.hash(user.password, configAuth.SALT_ROUNDS);
+            if (user.password) {               
+                user.password_hash = await bcrypt.hash(user.password, parseInt(configAuth.salt));
             }
         });
   
@@ -36,7 +36,7 @@ class User extends Model {
     }
 
     generateToken = () => {
-        return jwt.sign({ id: this.id }, configAuth.JWT_SECRET);
+        return jwt.sign({ id: this.id }, configAuth.token);
     }
 }
 
