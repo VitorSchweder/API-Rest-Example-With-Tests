@@ -1,8 +1,11 @@
-module.exports = async (req, res, next) => {
-    console.log(req.userId);
-    console.log(req.userId);
+const config = require('../../config');
 
-    return res.status(401).json({ message: 'teste' })
+module.exports = async (req, res, next) => {       
+    if (req.userProfile != config.profiles.admin) {           
+        if (req.userId != req.params.id) {
+            return res.status(401).json({ message: 'Unauthorized' })
+        }
+    }
 
     return next();
 };

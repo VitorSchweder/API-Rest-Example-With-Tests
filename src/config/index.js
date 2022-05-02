@@ -18,5 +18,9 @@ module.exports = {
         }
     },
     token: process.env.JWT_SECRET || 'Kgegn3XHYgvaFh-fx8NboLzgQwGJUQA',
-    salt: process.env.SALT_ROUNDS
+    salt: process.env.SALT_ROUNDS,
+    profiles: {
+        admin: 1,
+        employee: 2
+    }
 }
