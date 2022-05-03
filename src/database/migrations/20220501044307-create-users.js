@@ -25,8 +25,8 @@ module.exports = {
       profile_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "profiles", key: "id"},
-        onUpdate: 'CASCADE'
+        references: { model: "profiles", key: "id" },
+        onUpdate: 'CASCADE',
       },
       password_hash: {
         type: Sequelize.STRING,

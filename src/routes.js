@@ -12,6 +12,10 @@ routes.post('/auth', AuthController.store);
 
 routes.use(AuthMiddleware);
 
+routes.get('/dashboard', (req, res) => {
+    return res.json({ message: 'ok' });
+});
+
 routes.use('/companies', IsAdminMiddleware);
 
 routes.get('/companies', CompaniesController.index);
