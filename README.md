@@ -12,7 +12,7 @@ yarn install
 <pre>
 E-mail: admintest@email.com,
 Senha: admin@321
-</pre>.
+</pre>
 
 ## Endpoints - API
 <p>O arquivo contendo o ambiente / end-points da API está na pasta raíz do projeto, chamado: <b>Insomnia.json</b>.</p>
@@ -25,7 +25,6 @@ Senha: admin@321
   "TOKEN": "eyJhbGciOiJIUzCI6IkpXVCJ9.eyJpZCI6MSwioxNjUxNTg4OTcyfQ.Y24Tf2CpGrYtm-BGy1oTxbng6ou19SFy0JY"
 }
 </pre>
-
 
 ## ACL
 <p>
