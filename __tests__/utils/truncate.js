@@ -1,5 +1,5 @@
-const { sequelize } = require('../../src/app/models')
+const { sequelize } = require("../../src/app/models");
 
 module.exports = () => {
-    return sequelize.sync({force: true});
-}
+	return sequelize.sync({ force: true });
+};

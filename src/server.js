@@ -1,5 +1,5 @@
-const app = require('./app');
+const app = require("./app");
 
-require('./database');
+require("./database");
 
 app.listen(process.env.PORT || 3000);
